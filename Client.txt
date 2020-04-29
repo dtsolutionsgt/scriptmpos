@@ -1,0 +1,26 @@
+Codigo cliente :
+
+Campos codigo_cliente y codigo contienen mismo valor definido por la formula abajo :
+Campo NIT contiene NIT original, no transformado
+
+
+Nit transformado :
+
+private int nitnum(String nit) {
+int pp;
+
+        try {
+            nit=nit.toUpperCase();
+            pp=nit.indexOf("-");
+            if (pp<0) return 0;
+
+            int A=(int) nit.charAt(pp+1);
+            String snit=nit.substring(0,pp)+A;
+            int nnit=Integer.parseInt(snit);
+
+            return nnit;
+        } catch (Exception e) {
+            msgbox(new Object(){}.getClass().getEnclosingMethod().getName()+" . "+e.getMessage());
+            return 0;
+        }
+}
